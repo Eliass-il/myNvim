@@ -1,5 +1,3 @@
-require("harpoon.mark")
-require("harpoon.ui")
 local map = vim.keymap.set
 map("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
@@ -19,7 +17,3 @@ map("n", "<leader>pf", builtin.find_files, {})
 map("n", "<leader>fb", builtin.buffers, {})
 map("n", "<leader>fg", builtin.live_grep, {})
 
--- harpoon bindings
-map("n", "<leader>a", mark.add_file)
-map("n", "<C-e>", ui.toggle_quick_menu)
-map("n", "<C-h>", function() ui.nav_file(1) end)

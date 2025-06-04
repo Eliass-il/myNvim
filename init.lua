@@ -5,7 +5,7 @@ require("core.keymaps")
 require("core.packer")
 
 --plugins configuration
-
+require("plugins.colors")
 require("plugins.lsp")
 require("plugins.treesitter")
 require("plugins.cmp")

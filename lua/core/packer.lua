@@ -1,4 +1,4 @@
--- packer.lua
+ -- packer.lua
 vim.cmd [[packadd packer.nvim]]
 local ensure_packer = function()
     local fn = vim.fn
@@ -25,7 +25,7 @@ require("packer").startup(function(use)
     use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } }
 
     -- Treesitter
-    use ( 'nvim-treesitter/nvim-treesitter', {run = ":TSUpdate"})
+    use ('nvim-treesitter/nvim-treesitter', {run = ":TSUpdate"})
     use  "nvim-treesitter/playground" 
     -- LSP
     use "neovim/nvim-lspconfig"
@@ -41,15 +41,19 @@ require("packer").startup(function(use)
     use "mfussenegger/nvim-jdtls"
     -- Color scheme
     use({ "rose-pine/neovim",
-        as = "rose-pine",
-        config = function ()
-            vim.cmd("colorscheme rose-pine")
-        end
-    })
+    as = "rose-pine",
+    config = function ()
+        vim.cmd("colorscheme rose-pine")
+    end
+})
     -- Harpoon (file navigator)
-    use "theprimeagen/harpoon"
+    use ("theprimeagen/harpoon")
+    -- Undo tree
+    use ("mbbill/undotree")
+    use ("tpope/vim-fugitive")
 
     if packer_bootstrap then
         require("packer").sync()
     end
 end)
+
