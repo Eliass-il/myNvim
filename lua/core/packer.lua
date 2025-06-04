@@ -1,4 +1,5 @@
 -- packer.lua
+vim.cmd [[packadd packer.nvim]]
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -25,7 +26,7 @@ require("packer").startup(function(use)
 
     -- Treesitter
     use ( 'nvim-treesitter/nvim-treesitter', {run = ":TSUpdate"})
-
+    use  "nvim-treesitter/playground" 
     -- LSP
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
@@ -38,6 +39,15 @@ require("packer").startup(function(use)
     use "saadparwaiz1/cmp_luasnip"
     -- Maven
     use "mfussenegger/nvim-jdtls"
+    -- Color scheme
+    use({ "rose-pine/neovim",
+        as = "rose-pine",
+        config = function ()
+            vim.cmd("colorscheme rose-pine")
+        end
+    })
+    -- Harpoon (file navigator)
+    use "theprimeagen/harpoon"
 
     if packer_bootstrap then
         require("packer").sync()
